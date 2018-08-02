@@ -6,6 +6,19 @@ Challenge here:
 How to add a filter to resolve the token and transfer to auth  
 https://stackoverflow.com/questions/42354138/spring-security-token-based-authentication
 
+GenericFilterBean vs Filter???  
+JwtTokenFilterConfigurer extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity>???  
+http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider)); ????
+
+Why this statement? How it works?
+  
+
+
+# How to Use
+
+![alt text](https://github.com/PeaceUCR/SpringSecurityJWT/blob/master/signup.png?raw=true)
+![alt text](https://github.com/PeaceUCR/SpringSecurityJWT/blob/master/signin.png?raw=true)
+![alt text](https://github.com/PeaceUCR/SpringSecurityJWT/blob/master/view.png?raw=true)
 
 
 # /security/JwtTokenFilter
@@ -18,7 +31,7 @@ This filter has the following responsibilities:
 
 2.Invokes success or failure strategies based on the outcome of authentication process performed by JwtTokenProvider
 Please ensure that chain.doFilter(request, response) is invoked upon successful authentication. You want processing of the request to advance to the next filter, because very last one filter FilterSecurityInterceptor#doFilter is responsible to actually invoke method in your controller that is handling requested API resource.
-
+![alt text](https://github.com/PeaceUCR/SpringSecurityJWT/blob/master/JwtTokenFilter.png?raw=true)
 
 # /security/JwtTokenFilterConfigurer
 
