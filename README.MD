@@ -13,6 +13,25 @@ http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider)); ????
 Why this statement? How it works?
   
 
+# newly update, support CORS
+
+Normal custom cors filter not work here, need refer to this solution
+https://stackoverflow.com/questions/31724994/spring-data-rest-and-cors/31748398#31748398 .   
+
+    @Configuration
+    public class RestConfiguration {
+
+      @Bean
+      public FilterRegistrationBean corsFilter() {
+          UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+          CorsConfiguration config = new CorsConfiguration().applyPermitDefaultValues();
+          source.registerCorsConfiguration("/**", config);
+          FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+          bean.setOrder(0);
+          return bean;
+      }
+    }
+
 
 # How to Use
 
