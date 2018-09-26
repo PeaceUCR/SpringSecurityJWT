@@ -13,7 +13,7 @@ http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider)); ????
 Why this statement? How it works?
   
 
-# newly update, support CORS
+(# newly update, support CORS
 
 Normal custom cors filter not work here, need refer to this solution
 https://stackoverflow.com/questions/31724994/spring-data-rest-and-cors/31748398#31748398 .   
@@ -31,7 +31,8 @@ https://stackoverflow.com/questions/31724994/spring-data-rest-and-cors/31748398#
           return bean;
       }
     }
-
+)This doesn't work!
+Please refer to https://github.com/PeaceUCR/MyStore 
 
 # How to Use
 
